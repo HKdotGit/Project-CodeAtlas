@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+# CodeAtlas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI-powered codebase navigation and semantic search platform for understanding complex repositories.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+CodeAtlas is an AI-powered developer platform designed to help users explore, understand, and interact with large codebases more efficiently. The platform uses semantic search and intelligent repository analysis to simplify navigation across complex software projects.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Instead of relying on traditional keyword-based search, CodeAtlas enables developers to query repositories using natural language and receive AI-generated insights, architecture explanations, dependency mappings, and contextual code understanding.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Semantic Code Search
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Natural language repository search
+* Intelligent file discovery
+* Context-aware code understanding
+* Smart result ranking
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### AI Repository Assistant
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* AI-powered codebase explanations
+* Architecture understanding
+* Module summaries
+* Dependency analysis
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Smart File Explorer
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* AI-generated file summaries
+* Semantic file categorization
+* Related module suggestions
+* Important component highlighting
+
+---
+
+## Project Structure
+
+### Core Components
+
+* Semantic search engine
+* Repository analysis system
+* AI assistant module
+* Architecture visualization engine
+* Dependency mapping system
+
+### Functional Modules
+
+* Repository parser
+* Embedding generation
+* Vector search integration
+* AI response generation
+* Graph visualization handling
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* Next.js
+* React
+* Tailwind CSS
+
+### Backend
+
+* FastAPI / Node.js
+
+### AI & Search
+
+* OpenAI / Gemini API
+* Semantic Search
+* Embeddings
+* Vector Database
+
+### Code Processing
+
+* Tree-sitter
+* Repository Parsing
+* Dependency Mapping
+
+---
+
+## Project Goal
+
+The goal of CodeAtlas is to improve developer productivity by enabling intelligent codebase understanding through AI-powered semantic search, repository analysis, and architecture visualization.
+
+The platform aims to simplify navigation and comprehension of complex software systems for developers working on large-scale projects.
+
+---
+
+## Future Scope
+
+* Multi-repository analysis
+* AI bug tracing
+* Smart refactoring suggestions
+* Auto-generated documentation
+* IDE integration
+* Team collaboration insights
+
+---
+
+## About the Developer
+
+Developed by Hrishikesh Kunde, a 2nd-year Computer Science student at NMIMS Mumbai (MPSTME).
+
+### Contact
+
+* LinkedIn: [Hrishikesh Kunde LinkedIn](https://www.linkedin.com/in/hk4ln?utm_source=chatgpt.com)
+* Email: [hrishikeshkunde07@gmail.com](mailto:hrishikeshkunde07@gmail.com)
+
+---
+
+## License
+
+This project is developed for educational and research purposes.
