@@ -1,118 +1,73 @@
-# CodeAtlas
+# React + TypeScript + Vite
 
-AI-powered codebase navigation and semantic search platform for understanding complex repositories.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## Overview
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-CodeAtlas is an AI-powered developer platform designed to help users understand, explore, and interact with large codebases more efficiently. Instead of relying on traditional keyword-based searches, CodeAtlas uses semantic understanding and intelligent repository analysis to help developers navigate complex software projects.
+## React Compiler
 
-The platform enables developers to search repositories using natural language, visualize project architecture, trace dependencies, and receive AI-generated explanations for files, modules, and workflows.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## Features
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### Semantic Code Search
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-Search codebases using natural language queries such as:
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-* “Where is authentication handled?”
-* “Find payment-related logic.”
-* “Which files manage API requests?”
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-### AI Repository Assistant
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Ask AI questions about the repository:
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-* Project architecture explanations
-* Module summaries
-* Dependency understanding
-* Workflow analysis
-
-### Architecture Visualization
-
-* Interactive dependency graphs
-* Module relationship mapping
-* File and service connections
-* Expandable architecture views
-
-### Smart File Explorer
-
-* AI-generated file summaries
-* Important module highlighting
-* Semantic categorization
-* Related file suggestions
-
-### Repository Insights
-
-* Language distribution
-* Dependency analytics
-* Complexity indicators
-* Code structure analysis
-
-### Developer Onboarding
-
-Generate quick repository overviews to help developers understand unfamiliar projects faster.
-
----
-
-## Tech Stack
-
-### Frontend
-
-* Next.js
-* React
-* Tailwind CSS
-
-### Backend
-
-* FastAPI / Node.js
-
-### AI & Search
-
-* OpenAI / Gemini API
-* Semantic Search
-* Embeddings
-* Vector Database
-
-### Code Parsing
-
-* Tree-sitter
-
----
-
-## Project Goal
-
-The goal of CodeAtlas is to improve developer productivity by enabling intelligent codebase understanding through AI-powered semantic search, repository analysis, and architecture visualization.
-
-This project is built as a proof-of-concept showcasing how AI can simplify navigation and comprehension of complex software systems.
-
----
-
-## Future Scope
-
-* Multi-repository analysis
-* AI bug tracing
-* Smart refactoring suggestions
-* Auto-generated documentation
-* Real-time collaboration insights
-* IDE integration
-
----
-
-## About the Developer
-
-Developed by Hrishikesh Kunde, a 2nd-year Computer Science student at NMIMS Mumbai (MPSTME).
-
-### Contact
-
-* LinkedIn: [Hrishikesh Kunde LinkedIn](https://www.linkedin.com/in/hk4ln?utm_source=chatgpt.com)
-* Email: [hrishikeshkunde07@gmail.com](mailto:hrishikeshkunde07@gmail.com)
-
----
-
-## License
-
-This project is developed for educational and research purposes.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
